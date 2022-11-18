@@ -5,28 +5,40 @@ const dealsItems = [{key : '1'},{key : '2'},{key : '3'},{key : '4'},{key : '5'},
 const companies = ["ESB Networks Ltd", "Pinergy", "Prepay Power", "Electric Ireland", "EirGrid", "EcoPowe Supply","Flow gas","Glow Power","Viridian Energy Ltd","Airtricity","Energia","Huntstown Power Station","Bord Gais Energy Supply","Water Power"];
 const WIDTH = Dimensions.get('window').width;
 
-const Item = ({ title }) => (
-    <View style={styles.item}>
-      <Text style={styles.title}>{title}</Text>
-    </View>
-  );
+// const Item = ({ title }) => ( 
+//     <View style={styles.item}>
+//       <Text style={styles.title}>{title}</Text>
+
+
+//     </View>
+//   );
 
 const Deals = ({ navigation, route }) =>{
-    const renderItem = ({ item }) => (
-        <Item title={item} />
-      );
-     
+    // const renderItem = ({ item }) => (
+    //     <Item title={ item} />
+
+    //   );
+      
     return  (
         <View style={styles.container}>
             <FlatList
-                data={companies}
-                renderItem={renderItem}
-                keyExtractor={item => item}
-            />
             
+                data={companies}
+                keyExtractor={(item) =>item}
+                renderItem={({ item }) => {if(item !==route.params.q3){
+                  return(
+                  <View style={styles.item}>
+                   <Text style={styles.title}>{item}</Text>
+                  </View>
+                  )
+                }
+                }
+              }
+            />
+{/*             
             <Text> {route.params.q1}</Text>
             <Text> {route.params.q2}</Text>
-            <Text> {route.params.q3}</Text>
+            <Text> {route.params.q3}</Text> */}
         </View>
     
         
