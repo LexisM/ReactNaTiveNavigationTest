@@ -13,14 +13,14 @@ const Question = ({ navigation, route }) =>{
             <View   style={styles.btnBox} >
             <View style={styles.btnStyle}>
                 <TouchableOpacity
-                onPress={() => navigation.navigate('Question_3', {key: route.params.key , q2 : 'AAAAA'})}
+                onPress={() => navigation.navigate('Question_3', {q1: route.params.q1 , q2 : 'AAAAA'})}
                 style={styles.button}>
                 <Text style={styles.buttonText}>AAAAA</Text>
                 </TouchableOpacity>
             </View>
                 <View style={styles.btnStyle}>
                 <TouchableOpacity
-                    onPress={() => navigation.navigate('Question_3', {key: route.params.key , q2 : 'BBBBB'})}
+                    onPress={() => navigation.navigate('Question_3', {q1: route.params.q1 , q2 : 'BBBBB'})}
                     style={styles.button}>
                     <Text style={styles.buttonText}>BBBBB</Text>
                 </TouchableOpacity>
@@ -49,9 +49,7 @@ const styles = StyleSheet.create({
     alignItems:"center",
  
    },
-   btnStyle:{
- 
-   },
+
    button: {
      backgroundColor: "blue",
      padding: 40,

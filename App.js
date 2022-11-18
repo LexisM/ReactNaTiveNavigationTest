@@ -33,6 +33,7 @@ const Stack = createNativeStackNavigator();
 import Wizard from './screens/wizard';
 import Question from './screens/Question';
 import Question_3 from './screens/Question_3';
+import Deals from './screens/deals';
 
 
 
@@ -60,13 +61,16 @@ function HomeScreen({navigation}) {
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="HomeScreen" component={HomeScreen} />
+      <Stack.Navigator screenOptions={{
+    headerShown: false
+  }}>
+       
         <Stack.Screen name="Wizard" component={Wizard} />
         <Stack.Screen name="Question" component={Question} />
         <Stack.Screen name="Question_3" component={Question_3} />
+        <Stack.Screen name="Deals" component={Deals} />
       </Stack.Navigator>
-      <StatusBar style="auto" />
+      
     </NavigationContainer>
   
   );

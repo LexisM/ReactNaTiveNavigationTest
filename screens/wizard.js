@@ -17,14 +17,14 @@ const Wizard = ({ navigation }) =>{
             <View   style={styles.btnBox} >
             <View style={styles.btnStyle}>
                 <TouchableOpacity
-                onPress={() => navigation.navigate('Question', {key: 'Green Energy'})}
+                onPress={() => navigation.navigate('Question', {q1: 'Green Energy'})}
                 style={styles.button}>
                 <Text style={styles.buttonText}>Green Energy</Text>
                 </TouchableOpacity>
             </View>
                 <View style={styles.btnStyle}>
                 <TouchableOpacity
-                    onPress={() =>navigation.navigate('Question',{key: 'Cheaper Price'})}
+                    onPress={() =>navigation.navigate('Question',{q1: 'Cheaper Price'})}
                     style={styles.button}>
                     <Text style={styles.buttonText}>Cheaper Price</Text>
                 </TouchableOpacity>
