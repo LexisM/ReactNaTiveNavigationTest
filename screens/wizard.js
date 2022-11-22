@@ -1,7 +1,5 @@
 import React from "react";
  import { StyleSheet, TouchableOpacity, View, Text } from "react-native";
- import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 
 
@@ -17,14 +15,14 @@ const Wizard = ({ navigation }) =>{
             <View   style={styles.btnBox} >
             <View style={styles.btnStyle}>
                 <TouchableOpacity
-                onPress={() => navigation.navigate('Question', {q1: 'Green Energy'})}
+                onPress={() => navigation.navigate('Question', {q1: 'green'})}
                 style={styles.button}>
                 <Text style={styles.buttonText}>Green Energy</Text>
                 </TouchableOpacity>
             </View>
                 <View style={styles.btnStyle}>
                 <TouchableOpacity
-                    onPress={() =>navigation.navigate('Question',{q1: 'Cheaper Price'})}
+                    onPress={() =>navigation.navigate('Question',{q1: 'cheap'})}
                     style={styles.button}>
                     <Text style={styles.buttonText}>Cheaper Price</Text>
                 </TouchableOpacity>
@@ -44,7 +42,8 @@ const styles = StyleSheet.create({
      flex:2,
      backgroundColor: '#fff',
      alignItems: 'center',
-     justifyContent: 'center'
+     justifyContent: 'center',
+     
     },
    
    btnBox:{

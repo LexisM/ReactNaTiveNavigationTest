@@ -1,8 +1,10 @@
+
 import React from "react";
 import { StyleSheet, View, Text, FlatList, Dimensions } from "react-native";
 
-const dealsItems = [{key : '1'},{key : '2'},{key : '3'},{key : '4'},{key : '5'},{key : '6'},{key : '7'},{key : '8'},]
 const companies = ["ESB Networks Ltd", "Pinergy", "Prepay Power", "Electric Ireland", "EirGrid", "EcoPowe Supply","Flow gas","Glow Power","Viridian Energy Ltd","Airtricity","Energia","Huntstown Power Station","Bord Gais Energy Supply","Water Power"];
+const cheapItem = ["Water Power","ESB Networks Ltd","Pinergy","Prepay Power", "Electric Ireland","EirGrid","EcoPowe Supply","Flow gas","Glow Power","Viridian Energy Ltd","Airtricity","Energia","Huntstown Power Station","Bord Gais Energy Supply",];
+
 const WIDTH = Dimensions.get('window').width;
 
 // const Item = ({ title }) => ( 
@@ -19,31 +21,116 @@ const Deals = ({ navigation, route }) =>{
 
     //   );
       
-    return  (
-        <View style={styles.container}>
-            <FlatList
-            
-                data={companies}
-                keyExtractor={(item) =>item}
-                renderItem={({ item }) => {if(item !==route.params.q3){
-                  return(
-                  <View style={styles.item}>
-                   <Text style={styles.title}>{item}</Text>
-                  </View>
-                  )
-                }
-                }
-              }
-            />
-{/*             
-            <Text> {route.params.q1}</Text>
-            <Text> {route.params.q2}</Text>
-            <Text> {route.params.q3}</Text> */}
-        </View>
-    
+
+      if(route.params.q1 == "green"){
+        if(route.params.q2 == "prepay"){
+          return (
+            <View style={styles.container}>
+                <FlatList 
+                 
+                    data={companies}
+                    keyExtractor={(item) =>item}
+                    renderItem={({ item }) => {if((item === "Pinergy" || item === "Prepay Power") && item !==route.params.q3){
+                      return(
+                      <View style={styles.item}>
+                       <Text style={styles.title}>{item}</Text>
+                      </View>
+                      )
+                    }
+                    }
+                  }
+                />
+                        
+                <Text> {route.params.q1}</Text>
+                <Text> {route.params.q2}</Text>
+                <Text> {route.params.q3}</Text>
+            </View>
         
-    );
-}
+            
+        )
+        }else{
+          return  (
+            <View style={styles.container}>
+                <FlatList 
+                 
+                    data={companies}
+                    keyExtractor={(item) =>item}
+                    renderItem={({ item }) => {if(item !== "Pinergy" && item !== "Prepay Power" && item !==route.params.q3){
+                      return(
+                      <View style={styles.item}>
+                       <Text style={styles.title}>{item}</Text>
+                      </View>
+                      )
+                    }
+                    }
+                  }
+                />
+                        
+                <Text> {route.params.q1}</Text>
+                <Text> {route.params.q2}</Text>
+                <Text> {route.params.q3}</Text>
+            </View>
+        
+            
+        )
+        }
+       
+      }else if (route.params.q1 == "cheap"){
+         if(route.params.q2 == "prepay"){
+          
+        return  (
+        <View style={styles.container}>
+              <FlatList 
+               
+                  data={cheapItem}
+                  keyExtractor={(item) =>item}
+                    renderItem={({ item }) => {if((item === "Pinergy" || item === "Prepay Power") && item !==route.params.q3){
+                    return(
+                    <View style={styles.item}>
+                     <Text style={styles.title}>{item}</Text>
+                    </View>
+                    )
+                  }
+                  }
+                }
+              />
+                      
+              <Text> {route.params.q1}</Text>
+              <Text> {route.params.q2}</Text>
+              <Text> {route.params.q3}</Text>
+          </View>
+        )
+      }else{
+        return  (
+          <View style={styles.container}>
+              <FlatList 
+               
+                  data={cheapItem}
+                  keyExtractor={(item) =>item}
+                  renderItem={({ item }) => {if(item !== "Pinergy" && item !== "Prepay Power" && item !==route.params.q3){
+                    return(
+                    <View style={styles.item}>
+                     <Text style={styles.title}>{item}</Text>
+                    </View>
+                    )
+                  }
+                  }
+                }
+              />
+                      
+              <Text> {route.params.q1}</Text>
+              <Text> {route.params.q2}</Text>
+              <Text> {route.params.q3}</Text>
+          </View>
+      
+          
+      )
+      }
+      
+    }
+  }
+   
+
 export default Deals;
 
 const styles = StyleSheet.create({

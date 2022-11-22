@@ -8,21 +8,22 @@ const Question = ({ navigation, route }) =>{
 
         <View style={styles.container}>
             <View  style={styles.box}>
-            <Text>Question 2</Text>
+                <Text>Prepay or 
+                    Contract?</Text>
             </View>
             <View   style={styles.btnBox} >
-            <View style={styles.btnStyle}>
-                <TouchableOpacity
-                onPress={() => navigation.navigate('Question_3', {q1: route.params.q1 , q2 : 'AAAAA'})}
-                style={styles.button}>
-                <Text style={styles.buttonText}>AAAAA</Text>
-                </TouchableOpacity>
-            </View>
+                <View style={styles.btnStyle}>
+                    <TouchableOpacity
+                    onPress={() => navigation.navigate('Question_3', {q1: route.params.q1 , q2 : 'prepay'})}
+                    style={styles.button}>
+                    <Text style={styles.buttonText}>Prepay</Text>
+                    </TouchableOpacity>
+                </View>
                 <View style={styles.btnStyle}>
                 <TouchableOpacity
-                    onPress={() => navigation.navigate('Question_3', {q1: route.params.q1 , q2 : 'BBBBB'})}
+                    onPress={() => navigation.navigate('Question_3', {q1: route.params.q1 , q2 : 'contract'})}
                     style={styles.button}>
-                    <Text style={styles.buttonText}>BBBBB</Text>
+                    <Text style={styles.buttonText}>Contract</Text>
                 </TouchableOpacity>
                 </View>
             </View>
