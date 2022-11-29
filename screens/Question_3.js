@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, TouchableOpacity, View, Text } from "react-native";
+import { StyleSheet, Image, View, Text } from "react-native";
 import SelectDropdown from 'react-native-select-dropdown' ; 
 
 const companies = ["ESB Networks Ltd", "Pinergy", "Prepay Power", "Electric Ireland", "EirGrid", "EcoPowe Supply","Flow gas","Glow Power","Viridian Energy Ltd","Airtricity","Energia","Huntstown Power Station","Bord Gais Energy Supply","Water Power"];
@@ -12,6 +12,7 @@ const Question_3 = ({ navigation, route }) =>{
 
             <View  style={styles.box}>
             <Text>Select previous supplier?</Text>
+            
             </View>
             <View   style={styles.btnBox} >
             

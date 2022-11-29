@@ -1,25 +1,29 @@
 
 import React from "react";
-import { StyleSheet, View, Text, FlatList, Dimensions } from "react-native";
+import { StyleSheet, View, Text,Image, FlatList, Dimensions } from "react-native";
 
-const companies = ["ESB Networks Ltd", "Pinergy", "Prepay Power", "Electric Ireland", "EirGrid", "EcoPowe Supply","Flow gas","Glow Power","Viridian Energy Ltd","Airtricity","Energia","Huntstown Power Station","Bord Gais Energy Supply","Water Power"];
+const companies = [
+  {"name":"ESB Networks Ltd","img":"https://via.placeholder.com/350x150.jpg"},
+  {"name":"Pinergy","img":"https://via.placeholder.com/350x150.jpg"},
+  {"name":"Prepay Power","img":"https://via.placeholder.com/350x150.jpg"},
+  {"name":"Electric Ireland","img":"https://via.placeholder.com/350x150.jpg"},
+  {"name":"EirGrid","img":"https://via.placeholder.com/350x150.jpg"},
+  {"name":"EcoPowe Supply","img":"https://via.placeholder.com/350x150.jpg"},
+  {"name":"Flow gas","img":"https://via.placeholder.com/350x150.jpg"},
+  {"name":"Glow Power","img":"https://via.placeholder.com/350x150.jpg"},
+  {"name":"Viridian Energy Ltd","img":"https://via.placeholder.com/350x150.jpg"},
+  {"name":"Airtricity","img":"https://via.placeholder.com/350x150.jpg"},
+  {"name":"Energia","img":"https://via.placeholder.com/350x150.jpg"},
+  {"name":"Huntstown Power Station","img":"https://via.placeholder.com/350x150.jpg"},
+  {"name":"Bord Gais Energy Supply","img":"https://via.placeholder.com/350x150.jpg"},
+  {"name":"Water Power","img":"https://via.placeholder.com/350x150.jpg"}];
 const cheapItem = ["Water Power","ESB Networks Ltd","Pinergy","Prepay Power", "Electric Ireland","EirGrid","EcoPowe Supply","Flow gas","Glow Power","Viridian Energy Ltd","Airtricity","Energia","Huntstown Power Station","Bord Gais Energy Supply",];
 
 const WIDTH = Dimensions.get('window').width;
 
-// const Item = ({ title }) => ( 
-//     <View style={styles.item}>
-//       <Text style={styles.title}>{title}</Text>
-
-
-//     </View>
-//   );
 
 const Deals = ({ navigation, route }) =>{
-    // const renderItem = ({ item }) => (
-    //     <Item title={ item} />
-
-    //   );
+  
       
 
       if(route.params.q1 == "green"){
@@ -29,11 +33,12 @@ const Deals = ({ navigation, route }) =>{
                 <FlatList 
                  
                     data={companies}
-                    keyExtractor={(item) =>item}
-                    renderItem={({ item }) => {if((item === "Pinergy" || item === "Prepay Power") && item !==route.params.q3){
+                    keyExtractor={(item) =>item.name}
+                    renderItem={({ item }) => {if((item.name === "Pinergy" || item.name === "Prepay Power") && item.name !==route.params.q3){
                       return(
                       <View style={styles.item}>
-                       <Text style={styles.title}>{item}</Text>
+                       <Text style={styles.title}>{item.name}</Text>
+                       <Image  style={styles.logo} source={{uri:item.img}}></Image>
                       </View>
                       )
                     }
@@ -54,11 +59,12 @@ const Deals = ({ navigation, route }) =>{
                 <FlatList 
                  
                     data={companies}
-                    keyExtractor={(item) =>item}
-                    renderItem={({ item }) => {if(item !== "Pinergy" && item !== "Prepay Power" && item !==route.params.q3){
+                    keyExtractor={(item) =>item.name}
+                    renderItem={({ item }) => {if(item.name !== "Pinergy" && item.name !== "Prepay Power" && item.name !==route.params.q3){
                       return(
                       <View style={styles.item}>
-                       <Text style={styles.title}>{item}</Text>
+                       <Text style={styles.title}>{item.name}</Text>
+                       <Image style={styles.logo} source={{uri:item.img}}></Image>
                       </View>
                       )
                     }
@@ -142,7 +148,6 @@ const styles = StyleSheet.create({
     row:{
         justifyContent:'space-evenly',
         alignItems:"center",
- 
         flexDirection: "row",
         flexWrap: "wrap",
         paddin:10
@@ -155,24 +160,23 @@ const styles = StyleSheet.create({
         fontSize:10,
         color:'white'
     },
-    itemsStyles:{
-        alignItems:'center',
-        justifyContent:'center',
-        height:100,
-        margin:2,
-        height: WIDTH /  2,
-        backgroundColor: '#fff',
-    
-    },
     item: {
-    backgroundColor: '#0984e3',
-    marginTop:20,
-    padding: 20,
-    marginVertical: 8,
-    marginHorizontal: 16,
+      flexDirection: "row",
+      backgroundColor: '#0984e3',
+      marginTop:20,
+      padding: 10,
+      marginVertical: 8,
+      marginHorizontal: 16,
+      justifyContent:'space-between'
   },
   title: {
+    flex:1,
     fontSize: 32,
   },
+  logo:{
+    width:50,
+    height:50,
+    alignSelf:'flex-end'
+  }
    
 });

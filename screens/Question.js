@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, TouchableOpacity, View, Text } from "react-native";
+import { StyleSheet, TouchableOpacity,Image, View, Text } from "react-native";
 
 
 const Question = ({ navigation, route }) =>{
@@ -8,8 +8,7 @@ const Question = ({ navigation, route }) =>{
 
         <View style={styles.container}>
             <View  style={styles.box}>
-                <Text>Prepay or 
-                    Contract?</Text>
+                <Text>Prepay or Contract?</Text>
             </View>
             <View   style={styles.btnBox} >
                 <View style={styles.btnStyle}>
@@ -37,27 +36,30 @@ const styles = StyleSheet.create({
         flex:1
     },
     box:{
-     flex:2,
-     backgroundColor: '#fff',
-     alignItems: 'center',
-     justifyContent: 'center'
+    flex:2,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center'
     },
    
-   btnBox:{
+    btnBox:{
     flexDirection:"row",
     flex:1,
     justifyContent:"space-evenly",
     alignItems:"center",
  
    },
-
    button: {
      backgroundColor: "blue",
-     padding: 40,
+     padding: 30,
      borderRadius: 5,
    },
    buttonText: {
      fontSize: 20,
      color: '#fff',
    },
+   logo:{
+    width:100,
+    height:100
+   }
 });
